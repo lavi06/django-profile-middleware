@@ -4,7 +4,6 @@ setup(
     name = 'python-cprofile-middleware',
     packages = ['python_cprofile_middleware'],
     license = 'MIT',
-    Version= '1.0',
     description = 'Get profiling results in a 2 step process',
     author = 'Himanshu Goyal',
     author_email = 'hggoyal06@gmail.com',

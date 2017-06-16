@@ -1,15 +1,16 @@
 
 ## Installation
-
+==========================
 ```
 $ pip install git+https://github.com/lavi06/python-cprofile-middleware.git
 ```
 
-python-cprofile-middleware
-==========================
+## Middleware
 
  **Motivation:** To provide an easy to use cProfile middleware to find bottlenecks in code.            
 
+**How To Use**
+(after installation)
 In your settings add:
 
 ```python_cprofile_middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
@@ -28,7 +29,10 @@ if DEBUG:
   )
 ```
 
-And that's it, profiling results will be printed on the console
+Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file**.
+** ** profiling_results.txt file will be created if not present but if it is there it will update any existing file with same name, 
+   So make sure to copy the file somewhere else or rename it in case you want the results later.**
+
 
 ## Decorator
 
@@ -38,7 +42,7 @@ I have also added a decorator in the package which can be used optionally accord
 So this decorator provides you an option to run the whole code multiple times and thus scaling the total time to a more indicative value.
 
 **How To Use**
-
+(after installation)
 In your views.py file add :
 
 ```
