@@ -5,7 +5,7 @@ setup(
     packages = ['python_cprofile_middleware'],
     license = 'MIT',
     Version= '1.0',
-    description = 'Easily add cProfile profiling to django views.',
+    description = 'Get profiling results in a 2 step process',
     author = 'Himanshu Goyal',
     author_email = 'hggoyal06@gmail.com',
     url = 'https://github.com/lavi06/python-cprofile-middleware',

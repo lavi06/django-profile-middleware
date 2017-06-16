@@ -34,8 +34,8 @@ And that's it, profiling results will be printed on the console
 
 I have also added a decorator in the package which can be used optionally according to one's requirement.
 
-**Motivation:** In case API takes very less time say 10 ms to execute, it is difficult to know which finction is taking the maximum time, as, even the slowest one may take just 1 ms or even less . 
-So this decorator provides you option to run the whole code multiple times and thus scaling the total time to a more indicative value.
+**Motivation:** In case API takes very less time say 10 ms to execute, it is difficult to know which function is taking the maximum time, as, even the slowest one may take just 1 ms or even less . 
+So this decorator provides you an option to run the whole code multiple times and thus scaling the total time to a more indicative value.
 
 **How To Use**
 
