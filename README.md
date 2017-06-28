@@ -1,6 +1,7 @@
 
-## Installation
+##INSTALATION
 ==========================
+
 ```
 $ pip install git+https://github.com/lavi06/python-cprofile-middleware.git
 ```
@@ -19,19 +20,105 @@ In your settings add:
 
 For example:
 
+```bash
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    ....
+	'python_cprofile_middleware.middleware.ProfilerMiddleware',]
+
+INSTALLED_APPS = [
+    ....
+    'python_cprofile_middleware',
+
+    ....
+] 
 ```
-if DEBUG:
-  MIDDLEWARE_CLASSES += ( 
-  'python_cprofile_middleware.middleware.ProfilerMiddleware',
-  						)
-  INSTALLED_APPS += (
-  'python_cprofile_middleware',
-  )
+### Enable
+Add ```PROFILER``` in project's ```settings.py``` and set ```enable = True```.
+Also make sure project running in DEBUG mode ```DEBUG = True```
+
+```bash
+DEBUG = True
+
+PROFILER = {
+    'enable': True,
+}
+
+```
+Done!
+Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file**.
+```profiling_results.txt``` file will be created if not present and updated with the results at end if a file with same name already exists.
+
+Example
+
+```bash
+        197 function calls (192 primitive calls) in 0.002 seconds
+
+   Ordered by: internal time
+   List reduced from 207 to 50 due to restriction <100>
+
+   ncalls  tottime  percall  cumtime  percall filename:lineno(function)
+   ...      ...      ...       ...     ...           ...
+   ...      ...      ...       ...     ...           ...
+
+   ```
+
+## Customize
+
+You can customize the Profiler settings via adding optional fields to ```Profiler``` key in ```settings.py```
+
+Default are
+
+```bash
+PROFILER = {
+    'enable': True,
+    'sort': 'time',
+    'count': '50' ,
+    'output': ['console','file'],             
+    'file_location': 'profiling_results.txt'
+
+}
 ```
 
-Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file**.
-** ** profiling_results.txt file will be created if not present but if it is there it will update any existing file with same name, 
-   So make sure to copy the file somewhere else or rename it in case you want the results later.**
+Description of optional fields
+### enable
+Set this key to ```True``` to enable Profiler
+
+```bash
+'enable': True
+```
+To disable set to ```False```
+```bash
+'enable': False
+```
+
+### sort
+Sort according to the set value. Default is ```'time'```.
+See [documentaion](http://docs.python.org/2/library/profile.html#pstats.Stats.sort_stats) for more options
+
+### count
+Specify number of rows to output. Default is ```50```.
+To output all the rows, give empty field ``` " " ```
+
+### output
+Specify the form of output. Default is ```['console',"file"]```. In case only one of them is required just mention that in output field
+```'file'``` will write the file specified by ```'file_location'``` field.
+
+
+```bash
+'output': ['console', 'file']  # default value
+```
+```bash
+'output': ['console']
+```
+
+
+### file_location
+Specify the location of file you want to write in the results. **Only valid if ```'file'``` in ```'output'``` field**. Default value ```profiling_results.txt```
+
+
+
 
 
 ## Decorator
@@ -53,7 +140,13 @@ and at the function you want to run multiple time add decorator:
 ```
 @my_decorator( *no. of times you want it to run )
 ```
+for example:
+```
+@my_decorator(100)
+```
 
+## Author
 
+* **Himanshu Goyal**
 Email me with any questions: [hggoyal06@gmail.com](hggoyal06@gmail.com).
 
