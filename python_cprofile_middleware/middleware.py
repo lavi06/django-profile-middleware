@@ -15,7 +15,7 @@ import StringIO
 class ProfilerMiddleware(object):
     
     def can(self, request):
-        if settings.DEBUG and settings.Profiler["enable"]:
+        if settings.DEBUG and settings.PROFILER["enable"]:
             return True
 
     def process_view(self, request, callback, callback_args, callback_kwargs):
@@ -30,19 +30,19 @@ class ProfilerMiddleware(object):
 
             StringIO = StringIO.StringIO()
             
-            sortby = settings.Profiler.get('sort', 'time')  
-            count = int(setting.Profiler.get('count', 50))
-            output = settings.Profiler.get('output', ['console'])
+            sortby = settings.PROFILER.get('sort', 'time')  
+            count = int(settings.PROFILER.get('count', 50))
+            output = settings.PROFILER.get('output', ['console'])
             
             ps = pstats.Stats(self.profiler, stream=s).sort_stats(sortby).print_stats(count)
 
-            for output in settings.Profiler.get('output', ['console','file']):
+            for output in settings.PROFILER.get('output', ['console','file']):
                 
                 if output == 'console':
                     print StringIO.getvalue()
 
                 if output == 'file':
-                    file_loc = settings.Profiler.get('file_location', 'profiling_results.txt')
+                    file_loc = settings.PROFILER.get('file_location', 'profiling_results.txt')
                     with open(file_loc,'a+') as file:
                         counter = str(s.getvalue())
                         file.write(counter)
