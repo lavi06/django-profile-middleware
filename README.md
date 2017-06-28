@@ -1,5 +1,5 @@
 
-##INSTALATION
+## INSTALATION
 ==========================
 
 ```
@@ -12,12 +12,13 @@ $ pip install git+https://github.com/lavi06/python-cprofile-middleware.git
 
 **How To Use**
 (after installation)
+
 In your settings add:
 
 ```python_cprofile_middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
 ```python_cprofile_middleware``` to your ```INSTALLED_APPS```
  
-
+``` In case you also want to profile any of your custom middleware, just add all those below this one```
 For example:
 
 ```bash
@@ -25,7 +26,10 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     ....
-	'python_cprofile_middleware.middleware.ProfilerMiddleware',]
+	
+	'python_cprofile_middleware.middleware.ProfilerMiddleware',
+
+]
 
 INSTALLED_APPS = [
     ....
@@ -47,7 +51,7 @@ PROFILER = {
 
 ```
 Done!
-Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file**.
+Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file.
 ```profiling_results.txt``` file will be created if not present and updated with the results at end if a file with same name already exists.
 
 Example
@@ -81,7 +85,7 @@ PROFILER = {
 }
 ```
 
-Description of optional fields
+## Description of optional fields
 ### enable
 Set this key to ```True``` to enable Profiler
 
@@ -148,5 +152,6 @@ for example:
 ## Author
 
 * **Himanshu Goyal**
+
 Email me with any questions: [hggoyal06@gmail.com](hggoyal06@gmail.com).
 
