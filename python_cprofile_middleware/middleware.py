@@ -28,7 +28,7 @@ class ProfilerMiddleware(object):
         if self.can(request):
             self.profiler.disable()
 
-            StringIO = StringIO.StringIO()
+            s = StringIO.StringIO()
             
             sortby = settings.PROFILER.get('sort', 'time')  
             count = int(settings.PROFILER.get('count', 50))
@@ -39,7 +39,7 @@ class ProfilerMiddleware(object):
             for output in settings.PROFILER.get('output', ['console','file']):
                 
                 if output == 'console':
-                    print StringIO.getvalue()
+                    print s.getvalue()
 
                 if output == 'file':
                     file_loc = settings.PROFILER.get('file_location', 'profiling_results.txt')
