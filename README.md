@@ -18,7 +18,9 @@ In your settings add:
 ```python_cprofile_middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
 ```python_cprofile_middleware``` to your ```INSTALLED_APPS```
  
-``` In case you also want to profile any of your custom middleware, just add all those below this one```
+```In case you also want to profile any of your custom middleware, just add all those below this one```.
+
+
 For example:
 
 ```bash
@@ -26,15 +28,14 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     ....
-	
-	'python_cprofile_middleware.middleware.ProfilerMiddleware',
+
+    'python_cprofile_middleware.middleware.ProfilerMiddleware',
 
 ]
 
 INSTALLED_APPS = [
     ....
     'python_cprofile_middleware',
-
     ....
 ] 
 ```
@@ -51,6 +52,7 @@ PROFILER = {
 
 ```
 Done!
+
 Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file.
 ```profiling_results.txt``` file will be created if not present and updated with the results at end if a file with same name already exists.
 

@@ -36,17 +36,17 @@ class ProfilerMiddleware(object):
             
             ps = pstats.Stats(self.profiler, stream=s).sort_stats(sortby).print_stats(count)
 
-            for output in settings.Profiler.get('output', ['console']):
+            for output in settings.Profiler.get('output', ['console','file']):
                 
                 if output == 'console':
                     print StringIO.getvalue()
 
                 if output == 'file':
-                    file_loc = settings.Profiler.get('location', 'profiling_results.txt')
+                    file_loc = settings.Profiler.get('file_location', 'profiling_results.txt')
                     with open(file_loc,'a+') as file:
                         counter = str(s.getvalue())
                         file.write(counter)
          
-            return response
+        return response
 
        
