@@ -31,7 +31,7 @@ class ProfilerMiddleware(object):
             s = StringIO.StringIO()
             
             sortby = settings.PROFILER.get('sort', 'time')  
-            count = int(settings.PROFILER.get('count', 50))
+            count = settings.PROFILER.get('count', None)
             output = settings.PROFILER.get('output', ['console'])
             
             ps = pstats.Stats(self.profiler, stream=s).sort_stats(sortby).print_stats(count)

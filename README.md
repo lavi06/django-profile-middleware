@@ -18,7 +18,7 @@ In your settings add:
 ```python_cprofile_middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
 ```python_cprofile_middleware``` to your ```INSTALLED_APPS```
  
-```In case you also want to profile any of your custom middleware, just add all those below this one```.
+```In case you also want to profile any of your custom middleware, just add all those middlewares below this one```.
 
 
 For example:
@@ -62,7 +62,6 @@ Example
         197 function calls (192 primitive calls) in 0.002 seconds
 
    Ordered by: internal time
-   List reduced from 207 to 50 due to restriction <100>
 
    ncalls  tottime  percall  cumtime  percall filename:lineno(function)
    ...      ...      ...       ...     ...           ...
@@ -79,8 +78,9 @@ Default are
 ```bash
 PROFILER = {
     'enable': True,
+    #optional fields
     'sort': 'time',
-    'count': '50' ,
+    'count': None ,
     'output': ['console','file'],             
     'file_location': 'profiling_results.txt'
 
@@ -104,11 +104,10 @@ Sort according to the set value. Default is ```'time'```.
 See [documentaion](http://docs.python.org/2/library/profile.html#pstats.Stats.sort_stats) for more options
 
 ### count
-Specify number of rows to output. Default is ```50```.
-To output all the rows, give empty field ``` " " ```
+Specify number of rows to output. By Default it will give all the rows.
 
 ### output
-Specify the form of output. Default is ```['console',"file"]```. In case only one of them is required just mention that in output field
+Specify the form of output. Default is ```['console',"file"]```. In case only one of them is required just mention that in ou2tput field
 ```'file'``` will write the file specified by ```'file_location'``` field.
 
 
