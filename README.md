@@ -67,7 +67,7 @@ Example
    ...      ...      ...       ...     ...           ...
    ...      ...      ...       ...     ...           ...
 
-   ```
+```
 
 ## Customize
 
@@ -78,6 +78,7 @@ Default are
 ```bash
 PROFILER = {
     'enable': True,
+
     #optional fields
     'sort': 'time',
     'count': None ,
@@ -138,16 +139,16 @@ So this decorator provides you an option to run the whole code multiple times an
 In your views.py file add :
 
 ```
-from django-profile-middleware.decorator import my_decorator
+from django-profile-middleware.decorator import iterator
 ```
 
 and at the function you want to run multiple time add decorator:
 ```
-@my_decorator( *no. of times you want it to run )
+@iterator( *no. of times you want it to run )
 ```
 for example:
 ```
-@my_decorator(100)
+@iterator(100)
 ```
 
 ## Author
