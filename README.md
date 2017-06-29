@@ -3,7 +3,7 @@
 ==========================
 
 ```
-$ pip install git+https://github.com/lavi06/python-cprofile-middleware.git
+$ pip install git+https://github.com/lavi06/django-profile-middleware.git
 ```
 
 ## Middleware
@@ -15,8 +15,8 @@ $ pip install git+https://github.com/lavi06/python-cprofile-middleware.git
 
 In your settings add:
 
-```python_cprofile_middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
-```python_cprofile_middleware``` to your ```INSTALLED_APPS```
+```django-profile-middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
+```django-profile-middleware``` to your ```INSTALLED_APPS```
  
 ```In case you also want to profile any of your custom middleware, just add all those middlewares below this one```.
 
@@ -29,13 +29,13 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     ....
 
-    'python_cprofile_middleware.middleware.ProfilerMiddleware',
+    'django-profile-middleware.middleware.ProfilerMiddleware',
 
 ]
 
 INSTALLED_APPS = [
     ....
-    'python_cprofile_middleware',
+    'django-profile-middleware',
     ....
 ] 
 ```
@@ -71,7 +71,7 @@ Example
 
 ## Customize
 
-You can customize the Profiler settings via adding optional fields to ```Profiler``` key in ```settings.py```
+You can customize the Profiler settings via adding optional fields to ```PROFILER``` key in ```settings.py```
 
 Default are
 
@@ -138,7 +138,7 @@ So this decorator provides you an option to run the whole code multiple times an
 In your views.py file add :
 
 ```
-from python_cprofile_middleware.decorator import my_decorator
+from django-profile-middleware.decorator import my_decorator
 ```
 
 and at the function you want to run multiple time add decorator:

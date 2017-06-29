@@ -1,14 +1,15 @@
 from distutils.core import setup
 
 setup(
-    name = 'python-cprofile-middleware',
-    packages = ['python_cprofile_middleware'],
+    name = 'django-profile-middleware',
+    packages = ['django-profile-middleware'],
+    version= '0.1',
     license = 'MIT',
-    description = 'Get profiling results in a 2 step process',
+    description = 'an easy to use middleware to profile your custom middlewares and code',
     author = 'Himanshu Goyal',
     author_email = 'hggoyal06@gmail.com',
-    url = 'https://github.com/lavi06/python-cprofile-middleware',
-    download_url = 'https://github.com/lavi06/python-cprofile-middleware/download',
-    keywords = ['django','profiling','cProfile'],
+    url = 'https://github.com/lavi06/django-profile-middleware',
+    download_url = 'https://github.com/lavi06/django-profile-middleware/archive/0.1.tar.gz',
+    keywords = ['django','profiling','cProfile','profile','profiler'],
     classifiers = [],
 )
