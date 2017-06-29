@@ -15,8 +15,8 @@ $ pip install git+https://github.com/lavi06/django-profile-middleware.git
 
 In your settings add:
 
-```django-profile-middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
-```django-profile-middleware``` to your ```INSTALLED_APPS```
+```django_profile_middleware.middleware.ProfilerMiddleware``` to the end your ```MIDDLEWARE_CLASSES``` and 
+```django_profile_middleware``` to your ```INSTALLED_APPS```
  
 ```In case you also want to profile any of your custom middleware, just add all those middlewares below this one```.
 
@@ -29,13 +29,13 @@ MIDDLEWARE = [
     'django.contrib.sessions.middleware.SessionMiddleware',
     ....
 
-    'django-profile-middleware.middleware.ProfilerMiddleware',
+    'django_profile_middleware.middleware.ProfilerMiddleware',
 
 ]
 
 INSTALLED_APPS = [
     ....
-    'django-profile-middleware',
+    'django_profile_middleware',
     ....
 ] 
 ```
@@ -139,7 +139,7 @@ So this decorator provides you an option to run the whole code multiple times an
 In your views.py file add :
 
 ```
-from django-profile-middleware.decorator import iterator
+from django_profile_middleware.decorator import iterator
 ```
 
 and at the function you want to run multiple time add decorator:
