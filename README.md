@@ -5,7 +5,7 @@ An easy to use customizable django profiling middleware for Django VERSION below
 ## Requirement
 Django VERSION below 1.10 and python 2.x
 
-## INSTALATION
+## Installation
 
 ```$ pip install django-profile-middleware```
 
@@ -54,7 +54,7 @@ PROFILER = {
 }
 
 ```
-Done!
+And 
 
 Profiling results will be printed on the console and will also be saved in a ```profiling_results.txt``` file.
 ```profiling_results.txt``` file will be created if not present and updated with the results at end if a file with same name already exists.
