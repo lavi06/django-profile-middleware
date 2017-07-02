@@ -1,9 +1,11 @@
-## Description
+## django-profile-middleware
 An easy to use customizable django profiling middleware for Django VERSION below 1.10. 
 (For version 1.10 or above refer [here](https://github.com/someshchaturvedi/customizable-django-profiler))
 
-## INSTALATION
+## Requirement
+Django VERSION below 1.10 and python 2.x
 
+## INSTALATION
 
 ```$ pip install django-profile-middleware```
 
