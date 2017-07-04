@@ -1,7 +1,7 @@
 from distutils.core import setup
 
 setup(
-    name = 'django_profile_middleware',
+    name = 'django-profile-middleware',
     packages = ['django_profile_middleware'],
     version= '0.1',
     license = 'MIT',
